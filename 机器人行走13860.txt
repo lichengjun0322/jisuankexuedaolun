@@ -1,0 +1,37 @@
+#include <bits/stdc++.h>
+using namespace std;
+int dir[4][2]= {0,1,1,0,0,-1,-1,0};
+char c[5]="NESW";
+int main()
+{
+    char s[1005];
+    int i,x,y,d;
+    cin>>s;
+    x=y=d=0;
+    for(i=0; s[i]!='\0'; i++)
+        {
+            s[i]=tolower(s[i]);
+            if(s[i]=='s')
+                break;
+            if(s[i]=='l')
+            {
+                d--;
+                if(d<0)d=3;
+            }
+
+            if(s[i]=='r')
+            {
+                d++;
+                if(d>3)d=0;
+            }
+            if(s[i] == 'l' || s[i] == 'r' || s[i] == 'g')
+            {
+                x+=dir[d][0];
+            y+=dir[d][1];
+            }
+
+
+        }
+    cout<<"("<<x<<","<<y<<")"<<","<<c[d]<<endl;
+    return 0;
+}
